@@ -12,4 +12,6 @@
         android:orderInCategory="100" app:showAsAction="never" />
     <item android:id="@+id/horizontal" android:title="HORIZONTAL"
         android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/vertical" android:title="VERTICAL"
+        android:orderInCategory="100" app:showAsAction="never" />
 </menu>
