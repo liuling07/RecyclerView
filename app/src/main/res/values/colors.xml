@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="color_item_normal">#52ce90</color>
+    <color name="color_item_press">#34b574</color>
+
+</resources>

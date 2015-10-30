@@ -3,4 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_grid_layout">GridLayoutActivity</string>
+    <string name="title_activity_list_layout">ListLayoutActivity</string>
+    <string name="title_activity_stagger_grid_layout">StaggerGridLayoutActivity</string>
 </resources>

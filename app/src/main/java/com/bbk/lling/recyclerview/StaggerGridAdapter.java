@@ -9,40 +9,47 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Class: ListAdapter
- * @Description: 数据适配器
+ * @Class: StaggerGridAdapter
+ * @Description:
  * @author: lling(www.cnblogs.com/liuling)
  * @Date: 2015/10/29
  */
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemViewHolder> {
+public class StaggerGridAdapter extends RecyclerView.Adapter<StaggerGridAdapter.ItemViewHolder> {
 
     private List<String> mDatas;
+    private List<Integer> mHeights;
     private LayoutInflater mInflater;
     private OnItemClickListener mOnItemClickListener;
 
-    public ListAdapter(Context context, List<String> mDatas) {
+    public StaggerGridAdapter(Context context, List<String> mDatas) {
         this.mDatas = mDatas;
         mInflater = LayoutInflater.from(context);
+        mHeights = new ArrayList<Integer>();
+        for (int i = 0; i < mDatas.size(); i++) {
+            mHeights.add( (int) (100 + Math.random() * 300));
+        }
     }
 
     @Override
-    public int getItemCount() {
-        return mDatas.size();
+    public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        ItemViewHolder holder = new ItemViewHolder(mInflater.inflate(
+                R.layout.stagger_item_layout, parent, false));
+        return holder;
     }
 
     @SuppressLint("NewApi")
     @Override
-    public void onBindViewHolder(final ItemViewHolder itemViewHolder, final int i) {
-        itemViewHolder.mTextView.setText(mDatas.get(i));
+    public void onBindViewHolder(final ItemViewHolder itemViewHolder, int position) {
+        itemViewHolder.mTextView.setText(mDatas.get(position));
+        ViewGroup.LayoutParams lp = itemViewHolder.mTextView.getLayoutParams();
+        lp.height = mHeights.get(position);
+
+        itemViewHolder.mTextView.setLayoutParams(lp);
         if(mOnItemClickListener != null) {
-            /**
-             * 这里加了判断，itemViewHolder.itemView.hasOnClickListeners()
-             * 目的是减少对象的创建，如果已经为view设置了click监听事件,就不用重复设置了
-             * 不然每次调用onBindViewHolder方法，都会创建两个监听事件对象，增加了内存的开销
-             */
             if(!itemViewHolder.itemView.hasOnClickListeners()) {
                 Log.e("ListAdapter", "setOnClickListener");
                 itemViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -64,22 +71,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemViewHolder
         }
     }
 
-    @Override
-    public ItemViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        /**
-         * 使用RecyclerView，ViewHolder是可以复用的。这根使用ListView的VIewHolder复用是一样的
-         * ViewHolder创建的个数好像是可见item的个数+3
-         */
-        Log.e("ListAdapter", "onCreateViewHolder");
-        ItemViewHolder holder = new ItemViewHolder(mInflater.inflate(
-                R.layout.item_layout, viewGroup, false));
-        return holder;
-    }
-
     /**
-     * 向指定位置添加元素
-     * @param position
-     * @param value
+     * 添加元素
+     * @param position  添加的位置
+     * @param value     添加元素的值
      */
     public void add(int position, String value) {
         if(position > mDatas.size()) {
@@ -89,27 +84,30 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemViewHolder
             position = 0;
         }
         mDatas.add(position, value);
-        /**
-         * 使用notifyItemInserted/notifyItemRemoved会有动画效果
-         * 而使用notifyDataSetChanged()则没有
-         */
+        mHeights.add(position, (int) (100 + Math.random() * 300));
         notifyItemInserted(position);
     }
 
     /**
-     * 移除指定位置元素
+     * 移除指定位置的元素
      * @param position
      * @return
      */
     public String remove(int position) {
-        if(position > mDatas.size()-1) {
+        if(position >= mDatas.size() || position < 0) {
             return null;
         }
         String value = mDatas.remove(position);
+        mHeights.remove(position);
         notifyItemRemoved(position);
         return value;
     }
 
+
+    @Override
+    public int getItemCount() {
+        return mDatas.size();
+    }
 
     public void setOnItemClickListener(OnItemClickListener mOnItemClickListener) {
         this.mOnItemClickListener = mOnItemClickListener;
@@ -132,5 +130,4 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemViewHolder
             mTextView = (TextView) itemView.findViewById(R.id.textview);
         }
     }
-
 }

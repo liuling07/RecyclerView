@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.bbk.lling.recyclerview.StaggerGridLayoutActivity">
+    <item android:id="@+id/add_first" android:title="添加item到头部"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/add_last" android:title="添加item到尾部"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/remove_first" android:title="移除头部item"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/remove_last" android:title="移除尾部item"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/horizontal" android:title="HORIZONTAL"
+        android:orderInCategory="100" app:showAsAction="never" />
+</menu>

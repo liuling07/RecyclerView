@@ -16,6 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".GridLayoutActivity"
+            android:label="@string/title_activity_grid_layout" >
+        </activity>
+        <activity
+            android:name=".ListLayoutActivity"
+            android:label="@string/title_activity_list_layout" >
+        </activity>
+        <activity
+            android:name=".StaggerGridLayoutActivity"
+            android:label="@string/title_activity_stagger_grid_layout" >
+        </activity>
     </application>
 
 </manifest>
