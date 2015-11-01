@@ -69,9 +69,11 @@ public class StaggerGridLayoutActivity extends ActionBarActivity {
                 break;
             case R.id.horizontal:
                 mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL));
+                mAdapter.setOrientation(StaggeredGridLayoutManager.HORIZONTAL);
                 break;
             case R.id.vertical:
                 mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL));
+                mAdapter.setOrientation(StaggeredGridLayoutManager.VERTICAL);
                 break;
         }
         return super.onOptionsItemSelected(item);

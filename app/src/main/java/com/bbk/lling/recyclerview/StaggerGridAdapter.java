@@ -3,6 +3,7 @@ package com.bbk.lling.recyclerview;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ public class StaggerGridAdapter extends RecyclerView.Adapter<StaggerGridAdapter.
     private List<Integer> mHeights;
     private LayoutInflater mInflater;
     private OnItemClickListener mOnItemClickListener;
+    private int mOrientation = StaggeredGridLayoutManager.VERTICAL;
 
     public StaggerGridAdapter(Context context, List<String> mDatas) {
         this.mDatas = mDatas;
@@ -46,7 +48,11 @@ public class StaggerGridAdapter extends RecyclerView.Adapter<StaggerGridAdapter.
     public void onBindViewHolder(final ItemViewHolder itemViewHolder, int position) {
         itemViewHolder.mTextView.setText(mDatas.get(position));
         ViewGroup.LayoutParams lp = itemViewHolder.mTextView.getLayoutParams();
-        lp.height = mHeights.get(position);
+        if(mOrientation == StaggeredGridLayoutManager.VERTICAL) {
+            lp.height = mHeights.get(position);
+        } else {
+            lp.width = mHeights.get(position);
+        }
 
         itemViewHolder.mTextView.setLayoutParams(lp);
         if(mOnItemClickListener != null) {
@@ -107,6 +113,10 @@ public class StaggerGridAdapter extends RecyclerView.Adapter<StaggerGridAdapter.
     @Override
     public int getItemCount() {
         return mDatas.size();
+    }
+
+    public void setOrientation(int mOrientation) {
+        this.mOrientation = mOrientation;
     }
 
     public void setOnItemClickListener(OnItemClickListener mOnItemClickListener) {
