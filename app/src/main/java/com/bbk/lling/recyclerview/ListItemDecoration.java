@@ -11,7 +11,7 @@ import android.view.View;
 /**
  * @Class: ListItemDecoration
  * @Description: listviewµÄitem·Ö¸îÏß
- * @author: lling(www.cnblogs.com/liuling)
+ * @author: lling(www.liuling123.com)
  * @Date: 2015/10/29
  */
 public class ListItemDecoration extends RecyclerView.ItemDecoration {

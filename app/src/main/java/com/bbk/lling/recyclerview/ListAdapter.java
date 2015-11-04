@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * @Class: ListAdapter
  * @Description: Êı¾İÊÊÅäÆ÷
- * @author: lling(www.cnblogs.com/liuling)
+ * @author: lling(www.liuling123.com)
  * @Date: 2015/10/29
  */
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemViewHolder> {

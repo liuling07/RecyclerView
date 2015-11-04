@@ -13,7 +13,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * @Class: StaggerGridLayoutActivity
+ * @Description: RecycleView实现瀑布流效果
+ * @author: lling(www.liuling123.com)
+ * @Date: 2015/10/29
+ */
 public class StaggerGridLayoutActivity extends ActionBarActivity {
     private RecyclerView mRecyclerView;
     private StaggerGridAdapter mAdapter;

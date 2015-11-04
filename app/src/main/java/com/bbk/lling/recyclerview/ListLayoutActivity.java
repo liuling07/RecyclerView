@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * @Class: ListLayoutActivity
  * @Description: RecycleView实现listview的功能
- * @author: lling(www.cnblogs.com/liuling)
+ * @author: lling(www.liuling123.com)
  * @Date: 2015/10/29
  */
 public class ListLayoutActivity extends ActionBarActivity {

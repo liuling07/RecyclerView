@@ -10,7 +10,7 @@ import android.view.View;
 /**
  * @Class: GridItemDecoration
  * @Description:
- * @author: lling(www.cnblogs.com/liuling)
+ * @author: lling(www.liuling123.com)
  * @Date: 2015/10/29
  */
 public class GridItemDecoration extends RecyclerView.ItemDecoration {

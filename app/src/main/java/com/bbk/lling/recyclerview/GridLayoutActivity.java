@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * @Class: GridLayoutActivity
  * @Description: RecycleView实现GridView的功能
- * @author: lling(www.cnblogs.com/liuling)
+ * @author: lling(www.liuling123.com)
  * @Date: 2015/10/29
  */
 public class GridLayoutActivity extends ActionBarActivity {

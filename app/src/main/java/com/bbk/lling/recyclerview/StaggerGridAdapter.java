@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * @Class: StaggerGridAdapter
  * @Description:
- * @author: lling(www.cnblogs.com/liuling)
+ * @author: lling(www.liuling123.com)
  * @Date: 2015/10/29
  */
 public class StaggerGridAdapter extends RecyclerView.Adapter<StaggerGridAdapter.ItemViewHolder> {
